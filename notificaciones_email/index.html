@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Notificaciones por Email</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div id='head'>
+	<a href='http://mundosica.github.com/' id='logoSICA' title='SICÁ - Publicación de códigos abiertos'></a>
+	<div id='colaboradores'></div>
+</div>
+<div id='content'>
+<div id='inner-content'>
+<!-- init inner content -->
+<h1>Notificaciones por Email.</h1>
+
+<blockquote>
+  <p><strong>NotificacionesEmail</strong> Es un <em>Objeto</em> empotrado en un simple script(<em>ideal en sitios que sólo requieren area de contacto</em>) escrito en <em>PHP</em> el cual nos permite enviar notificaciones por correo eléctronico, al tiempo que nos realiza una serie de validaciones correspondiente a la configuración que determinemos al crear dicho <em>Objeto</em>.</p>
+
+</blockquote>
+
+<h2>Modo de uso.</h2>
+
+<pre><code>//Agregamos la libreria
+require_once('notificaciones_email.php');
+
+//Definimos la configuración a usar
+$config = array(
+    'origen' =&gt; 'Contacto programación SICÁ &lt;programacion@mundosica.com&gt;',
+    'destino' =&gt; 'eymard@mundosica.com, ibaangr@gmail.com, chanerec@gmail.com',
+    'asunto' =&gt; 'Algun asunto',
+    'validaciones' =&gt; array(
+        'nombre'    =&gt; array('Required','Text'),
+        'telefono'  =&gt; array('Phone'),
+        'email'     =&gt; array('Email'),
+        'pagina_internet' =&gt; array('Required','Url'),
+        'fecha'     =&gt; array('Required','DateTime'),
+        )
+);
+
+//Creamos el Objeto a partir del arreglo de configuración
+$emails = new NotificacionesEmail($config);
+
+//Enviamos los correos electronicos.
+ if( $email-&gt;sendMails() ){
+    echo '&lt;h4&gt;Su mensaje fue enviado&lt;/h4&gt;';
+}else{
+    echo '&lt;h4&gt;Su mensaje no pudo ser enviado&lt;/h4&gt;';
+        print_r($email-&gt;errors);
+}
+
+</code></pre>
+
+<h2>Campos requeridos en el arreglo config.</h2>
+
+<ul>
+<li><strong>origen</strong> : Origen de los correos electronicos</li>
+<li><strong>destino</strong> : Destino, aquie(nes) llegara dicho correo.</li>
+<li><strong>asunto</strong> : Titulo del correo electronico.</li>
+
+<li><strong>validaciones</strong> : Arreglo de campos a validar y a enviar.</li>
+</ul>
+
+<p>Las reglas de validación se deben de ubicar en el arreglo <code>validaciones</code>. de la forma:</p>
+
+<pre><code>$config = array(
+        //...
+        'validaciones' =&gt; array(
+            'nombre_de_campo'    =&gt; array('regla1','regla2'),
+            )
+);
+</code></pre>
+
+<h3>Lista de las reglas aceptadas:</h3>
+
+<ul>
+<li><strong>Text</strong></li>
+<li><strong>DateTime</strong></li>
+<li><strong>Email</strong></li>
+<li><strong>Phone</strong></li>
+<li><strong>Url</strong></li>
+<li><strong>IPv4</strong></li>
+<li><strong>IPv6</strong></li>
+</ul>
+
+<h2>Licencia.</h2>
+
+<ul>
+<li>MIT License (http://www.opensource.org/licenses/mit-license.php)</li>
+</ul>
+<!-- end inner content -->
+</div>
+</div>
+</body>
+</html>

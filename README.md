@@ -1,8 +1,15 @@
-#SICÁ
-###Soluciones integrales en computación aplicada.
-####Tecnologias en libertad tecnologias para tod@s.
+#SICÁ - Proyectos de código abierto
 
-Bienvenid@ este espacio esta destinado para publicar nuestros códigos e imagenes SVG.
+##Soluciones Integrales en computación Áplicada.
+###Tecnologias en libertad tecnologias para tod@s.
+
+Bienvenid@ este espacio esta destinado para publicar nuestros códigos e imagenes SVG abiertos.
+
+##Lista de proyectos.
+
+ - [**El chaco arte grafica**](./el_chaco_arte_grafica/)
+ - [**Notificaciones por Email**](./notificaciones_email/)
+ - [**prototypeJsCarousel**](./prototypeJsCarousel/)
 
 La mayoria de nuestros archivos, estan publicados bajo:
 
@@ -10,10 +17,6 @@ La mayoria de nuestros archivos, estan publicados bajo:
  - __GPL 2__
  - __creativeCommons__
 
-##Lista de proyectos.
-
- - [El chaco arte grafica](http://mundosica.github.com/el_chaco_arte_grafica/)
-
-Por favor revise los archivos y sus respectivas licencias.
+_Por favor revise los archivos y sus respectivas licencias_.
 
 
