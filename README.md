@@ -11,7 +11,7 @@ Bienvenid@ este espacio esta destinado para publicar nuestros códigos e imagene
  - [**Notificaciones por Email**](./notificaciones_email/)
  - [**prototypeJsCarousel**](./prototypeJsCarousel/)
  - [**Traducción de magento a español Mexicano.**](./Magento_1.6.x_translation_es_MX/)
- - [**Geany Web Ninja.**](./geany-web-ninja//)
+ - [**Geany Web Ninja.**](./geany-web-ninja/)
 
 La mayoria de nuestros archivos, estan publicados bajo:
 
