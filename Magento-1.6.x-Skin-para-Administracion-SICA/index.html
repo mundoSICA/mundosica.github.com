@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Panel Administrativo Magento 1.6 por SICÁ</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/gh-buttons.css" />
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div id='head'>
+	<a href='http://mundosica.github.com/' id='logoSICA' title='SICÁ - Publicación de códigos abiertos'></a>
+	<div id='colaboradores'></div>
+</div>
+<div id='content'>
+<div id='inner-content'>
+<!-- init inner content -->
+<h1>Panel Administrativo Magento 1.6 por SICÁ</h1>
+
+<p>Este panel administrativo es para el uso de algunas aplicaciones con magento, para esto hemos tomado el panel por defecto y hemos realizado modificaciones muy sutiles.</p>
+
+<h1>Instrucciones De Como utilizar.</h1>
+
+<h2>1.- Descarga el paquete.</h2>
+
+<p>Usted puede descargar el panel desde los siguientes enlases:</p>
+
+<p><a href="https://github.com/mundoSICA/Magento-1.6.x-Skin-para-Administracion-SICA/tarball/master" class="button icon arrowdown">Download as <b>.tar.gz</b></a>
+<a href="https://github.com/mundoSICA/Magento-1.6.x-Skin-para-Administracion-SICA/zipball/master" class="button icon arrowdown">Download as <b>.zip</b></a></p>
+
+<h2>2.- Agregando los archivos a nuestro Magento.</h2>
+
+<p>Combinar los archivos del la carpeta <code>Magento-1.6</code> manteniendo la misma estructura de nuestro magento, renombrar el skin que estaremos usando <strong>p.e.</strong> si vamos a trabajar con una tienda de ropa podemos usar algo como <code>mi_tienda_ropa</code>: por lo cual hacemos algo como:</p>
+
+<pre><code>mov skin/adminhtml/default/sica_admin skin/adminhtml/default/sica_admin/mi_tienda_ropa
+</code></pre>
+
+<h2>3.- Configurando mi Magento para usar el tema.</h2>
+
+<p>Para esto tienes que ir al <strong>Admin, System (sistema) -> Configuration (configuración) -> Design (Diseño) -> Temas</strong>, ahí seleccionamos el nombre de nuestro tema p.e. <code>mi_tienda_ropa</code>.</p>
+
+<h3>4.- Desactiva el Cache.</h3>
+
+<p>Para para desabilitar el <em>cache</em> <strong>Admin, System (sistema) -> Cache Management (Gestión de Cache)</strong> desactivamos <code>Salida de Bloques HTML</code> y listo.</p>
+<!-- end inner content -->
+</div>
+</div>
+</body>
+</html>
