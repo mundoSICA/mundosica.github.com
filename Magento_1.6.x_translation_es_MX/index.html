@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Traduccion de magento a español Mexicano.</title>
+	<title>Traducción de magento al Español Mexicano.</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../css/gh-buttons.css" />
@@ -16,9 +16,9 @@
 <div id='content'>
 <div id='inner-content'>
 <!-- init inner content -->
-<h1>Traduccion de magento a español Mexicano.</h1>
+<h1>Traducción de magento al Español Mexicano.</h1>
 
-<p>Esta es una traduccion de magento al español mexicano, el cual lo puedes utilizar para trasformar tu tienda virtual a dicha idioma.</p>
+<p>Esta es una traducción de magento al <strong>Español Mexicano</strong>, el cual lo puedes utilizar para trasformar tu tienda virtual a dicha idioma.</p>
 
 <p>Para esto hemos tomado los archivos base de:</p>
 
@@ -28,7 +28,7 @@
 
 <h1>Instrucciones Como utilizar.</h1>
 
-<h2>1.- Descarga el paquete.</h2>
+<h2>1.- Descargar el paquete.</h2>
 
 <p>Usted puede descargar la versión mas reciente de esta traduccion desde la siguientes URLs:</p>
 
@@ -37,7 +37,14 @@
 
 <h2>2.- Agregando los archivos a nuestro Magento.</h2>
 
-<p>tendrás que combinar los archivos manteniendo la misma estructura de directorios en <code>app/locale/</code> y <code>app/design/frontend/default/default/es_MX</code>.</p>
+<p>tendrás que combinar los archivos manteniendo la misma estructura de directorios en <code>app/locale/</code> y <code>app/design/frontend/default/default/es_MX</code>, para esto usted puede utilizar el script <code>auxiliar.sh</code>:</p>
+
+<pre><code>./auxiliar.sh -instalar /var/www/mi_directorio_magento/
+</code></pre>
+
+<blockquote>
+  <p>Donde <code>/var/www/mi_directorio_magento/</code> es la ruta de nuestro directorio donde tenemos instalado magento.</p>
+</blockquote>
 
 <h2>3.- Configurando mi Magento para usar la nueva idioma.</h2>
 
@@ -46,6 +53,63 @@
 <h3>4.- Desactiva el Cache.</h3>
 
 <p>Para para desabilitar el <em>cache</em> <strong>Admin, System (sistema) -> Cache Management (Gestión de Cache)</strong> desactivamos <code>Translation files</code>.</p>
+
+<hr />
+
+<h1>Documentación para desarrolladores.</h1>
+
+<p>La siguiente sección esta orientada a desarrolladores, si gustas contribuir en la traducción de magento al <strong>Español Mexicano</strong> este es el espacio ideal para tí.</p>
+
+<h2>¿Como contribuir?</h2>
+
+<p>Para contribuir no es necesario que sepas programar o que conozcas del todo la estructura de los archivos que estamos manejando(<em>aunque resulta ideal</em>), usted puede contribuir de 2 formas:</p>
+
+<ul>
+<li><strong>Incurrencias ó errores:</strong> en caso que observes que alguna traducción se ha realizado incorrectamente(ó faltante) favor de dejar una nota en la siguiente <em>URL</em>:</li>
+
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/issues">https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/issues</a></p>
+</blockquote>
+
+<ul>
+<li><strong>Solicitud para agregar de tus cambios:</strong> Si realizaste alguna mejora (p.e la traducción ó corrección de ciertas etiquetas), por favor avisanos para incluir tus cambios, para esto puedes acudir a la siguiente <em>URL</em>:</li>
+</ul>
+
+<blockquote>
+  <p><a href="https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/pulls">https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/pulls</a></p>
+</blockquote>
+
+<p>Nosotros nos encargamos de revisar y mantener estos cambios, </p>
+
+<h2>Generando bifurcación de este proyecto.</h2>
+
+<p>En la segunda opción de como contribuir es necesario que usted obtenga una copia <em>canonica</em> del repositorio (<em>sientase libre de hacerlo</em>). Para esto se recomienda seguir las instrucciones documentadas en el siguiente enlace:</p>
+
+<ul>
+<li><a href="http://help.github.com/fork-a-repo/">http://help.github.com/fork-a-repo/</a></li>
+</ul>
+
+<p>Una vez que tengas una copia de este repositorio usted puede <em>jugar</em> con su copia como considere conveniente.</p>
+
+<h2>Uso del script <code>auxiliar.sh</code>.</h2>
+
+<p>Para facilitar el desarrollo de la tradducción hemos desarrollado un guión(<em>script</em>) en bash nombrado como <code>auxiliar.sh</code>, que le facilita las siguientes tareas:</p>
+
+<ul>
+<li><p><strong>Ordenar</strong>: Ordena por orden alfabetico al tiempo que elimina las lineas repetidas.</p>
+
+<p>./auxiliar.sh -ordenar</p></li>
+<li><p><strong>Instalación</strong>: Copia los archivos(csv) en la carpeta app de la ruta instalación.</p>
+
+<p>./auxiliar.sh -instalar /var/www/mi<em>directorio</em>magento/</p></li>
+<li><p><strong>Buscar</strong>: Busca en los archivos <code>.csv</code> la cadena pasada como argumento mostrando archivo/linea donde fue localizada.</p>
+
+<p>./auxiliar.sh -buscar "cadena buscada"</p></li>
+</ul>
+
+<p><strong>Nota</strong>: El script esta desarrollado para <em>Linux</em> sin embargo usted lo puede correr sobre Windows instalando una shell p.e. <strong>Cygwin</strong> (mayor información <a href="http://www.cygwin.com/">http://www.cygwin.com/</a> ).</p>
 <!-- end inner content -->
 </div>
 </div>
