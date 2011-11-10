@@ -7,6 +7,7 @@ Bienvenid@ este espacio esta destinado para publicar nuestros códigos e imagene
 
 ##Lista de proyectos.
 
+ - [**Cakephp Comportamiento slug**](./cakephp_behavior_slug/)
  - [**El chaco arte grafica**](./el_chaco_arte_grafica/)
  - [**Notificaciones por Email**](./notificaciones_email/)
  - [**prototypeJsCarousel**](./prototypeJsCarousel/)

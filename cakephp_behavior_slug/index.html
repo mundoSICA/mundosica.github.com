@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Documentación comportamiento Slug.</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/gh-buttons.css" />
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div id='head'>
+	<a href='http://mundosica.github.com/' id='logoSICA' title='SICÁ - Publicación de códigos abiertos'></a>
+	<div id='colaboradores'></div>
+</div>
+<div id='content'>
+<div id='inner-content'>
+<!-- init inner content -->
+<h1>Slug Behavior.</h1>
+
+<h3>Enables a model object to sluggable behavior.</h3>
+
+<h1>Instrucciones de uso.</h1>
+
+<h2>1.- Descargar el paquete.</h2>
+
+<p>Usted puede descargar la versión mas reciente de esta traduccion desde la siguientes URLs:</p>
+
+<p><a href="https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/tarball/master" class="button icon arrowdown">Download as <b>.tar.gz</b></a>
+<a href="https://github.com/mundoSICA/Magento_1.6.x_translation_es_MX/zipball/master" class="button icon arrowdown">Download as <b>.zip</b></a></p>
+
+<h2>2.- Descargar el paquete.</h2>
+
+<p>Debera agregar el archivo <code>slug.php</code> en su carpeta <code>app/models/behaviors/</code> en caso de usar cakephp inferior a la versión 2 o en <code>app/Model/Behavior/</code> en caso de usar versión 2 o superior.</p>
+
+<h2>3.- Seguir instrucciones de uso de comportamientos.</h2>
+
+<p>Se recomienda seguir la siguiente documentación:</p>
+
+<blockquote>
+  <p><a href="http://book.cakephp.org/2.0/en/models/behaviors.html">http://book.cakephp.org/2.0/en/models/behaviors.html</a></p>
+</blockquote>
+
+<h2>Descripción de argumentos:</h2>
+
+<h4>slug_src:</h4>
+
+<p>Por defecto toma el campo que hayamos definido como <a href="http://book.cakephp.org/view/1062/displayField"><strong>displayField</strong></a>, este debera ser un campo uníco en la tabla, el cual sufrira la trasformación <strong>slug</strong> para ser almacenado como <code>slug_dst</code>.</p>
+
+<pre><code>var $displayField = 'titulo';
+#esto nos genera
+Articulo.titulo = "Este es un articulo sobre el comportamiento Slug"
+Articulo.slug_dst = "Este-es-un-articulo-sobre-el-comportamiento-Slug"
+#Otra forma de hacerlo es de la siguiente manera
+var $actsAs = array('Slug'=&gt;array('slug_src' =&gt; 'titulo'));
+</code></pre>
+
+<p>Cabe mencionar que si definimos el <strong>displayField</strong> y por otra parte en la configuramos <strong>slug_src</strong> la opción que tomara sera esta ultima, veamos un ejemplo.</p>
+
+<pre><code>var $displayField = 'nombre';
+var $actsAs = array('Slug'=&gt;array('slug_src' =&gt; 'titulo'));
+
+</code></pre>
+
+<p>El campo que tomara sera <code>titulo</code> (por encima de <code>nombre</code>) ya que de esta forma estaremos diciendo explicitamente que el <code>slug_src</code> debera ser el campo <code>titulo</code>.</p>
+
+<h4>slug_dst:</h4>
+
+<p>Este campo tambien debe ser unico en la tabla y sera el resultado de la trasformación slug sobre <code>slug_dst</code> que sera almacenado en la base de datos automaticamente.</p>
+
+<pre><code>var $actsAs = array('Slug'=&gt;array('slug_src' =&gt; 'seo_url'));
+#esto nos genera
+Articulo.slug_dst = "Este es un articulo sobre el comportamiento Slug"
+Articulo.seo_url = "este-es-un-articulo-sobre-el-comportamiento-slug" .
+</code></pre>
+
+<h4>max_len:</h4>
+
+<p>Longitud máxima que puede llegar a tomar slug_dst.</p>
+
+<pre><code>var $actsAs = array('Slug'=&gt;array('max_len'=&gt;30));
+#esto nos genera
+Articulo.slug_dst = "este-es-un-articulo-sobre-el-c"
+</code></pre>
+
+<h4>wd_separator:</h4>
+
+<p>Separador de palabras <code>wd\_separator</code> (words separator) es el caracter separador de palabras, por defecto(-).</p>
+
+<pre><code>var $actsAs = array('Slug'=&gt;array('wd_separator'=&gt;'_'));
+#esto nos genera
+Articulo.slug_dst = "este_es_un_articulo_sobre_el_comportamiento_slug" .
+
+</code></pre>
+
+<h4>extension_active:</h4>
+
+<p>Por defecto false, si activamos este campo agrega la extensión '.html', reduciendo 5 carácteres el campo max_len (la longitud de '.html').</p>
+
+<pre><code>var $actsAs = array('Slug'=&gt;array('extension_active'=&gt;true));
+#esto nos genera
+Articulo.slug_dst = "este-es-un-articulo-sobre-el-comportamiento-slug.html"
+</code></pre>
+
+<h2>Ejemplo de configuración:</h2>
+
+<p>Imaginemos que queremos hacer que nuestros articulos que nos gustaria que tuviera urls amigable es decir que sobre el titulo podieramos es decir:</p>
+
+<pre><code>#visualizando un articulo
+http://mi-sitio/articulos/ver/algun-articulo.html
+
+#Editando un articulo
+http://mi-sitio/articulos/editar/algun-articulo.html
+
+#Borrando un articulo
+http://mi-sitio/articulos/borrar/algun-articulo.html
+</code></pre>
+
+<p>Entonces definimos la siguiente tabla:</p>
+
+<pre><code>CREATE TABLE IF NOT EXISTS `articulos` (
+    `id` INT( 5 ) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+    `nombre` VARCHAR( 80 ) NOT NULL UNIQUE,
+    `slug_dst` VARCHAR( 50 ) NOT NULL UNIQUE,
+    `contenido` VARCHAR( 150 ) DEFAULT NULL,
+    `created` DATETIME NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+</code></pre>
+
+<p>En nuestro modelo de <strong>Articulo</strong> definimos el comportamiento <strong>slug</strong> de la siguiente manera:</p>
+
+<pre><code>&lt;?php
+class Articulo extends AppModel{
+    var $name = 'Articulo';
+
+    #campo a mostrar
+    var $displayField = 'nombre';
+
+    #Definición del comportamiento slug
+    var $actsAs = array( 'slug'=&gt;array('extension_active'=&gt;true));
+}
+</code></pre>
+
+<p>El código anterior hace que el campo nombre(definido como <code>displayField</code>) sera trasformado con la forma <code>slug</code> y sera almacenado en el campo <code>slug_dst</code> para que de esta forma podamos realizar las consultas.</p>
+
+<p>Finalmente en nuestro controlador podemos llamar a las funciones slug:</p>
+
+<pre><code>#leyendo un registro a partir del slug
+$this-&gt;Articulo-&gt;readBySlug($slug);
+
+#obteniendo el id del articulo a partir del slug
+$id = $this-&gt;Articulo-&gt;primaryKeyBySlug(($slug);
+</code></pre>
+
+<p>Para las demas funciones el comportamiento slug realiza las operaciones necesarias por ejemplo si deseamos guardar un registro basta con hacer:</p>
+
+<pre><code>#agregando
+$this-&gt;Articulo-&gt;save($this-&gt;data);
+
+</code></pre>
+
+<p>Donde en $this->data debera existir el campo nombre y automaticamente el comportamiento nos va a generar el <code>slug_dst</code> slug destino al tiempo que realiza las validaciones necesarias, <em>¿facil no?</em>.</p>
+<!-- end inner content -->
+</div>
+</div>
+</body>
+</html>
