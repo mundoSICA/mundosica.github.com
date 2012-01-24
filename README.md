@@ -24,3 +24,10 @@ La mayoria de nuestros archivos, estan publicados bajo:
 _Por favor revise los archivos y sus respectivas licencias_.
 
 
+#Contacto
+
+Desarrollamos proyectos web, nos facina las tecnologias, ¿te podemos ayudar en algo?
+
+<http://mundosica.com/>
+
+
