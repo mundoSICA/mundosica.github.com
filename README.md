@@ -14,6 +14,7 @@ Bienvenid@ este espacio esta destinado para publicar nuestros códigos e imagene
  - [**Geany Web Ninja.**](./geany-web-ninja/)
  - [**Magento Traducción al español Mexicano.**](./Magento_1.6.x_translation_es_MX/)
  - [**Magento Skin para el panel administrativo.**](./Magento-1.6.x-Skin-para-Administracion-SICA/)
+ - [**Manual Basico de jQuery.**](./tutorial_hispano_jQuery/)
 
 La mayoria de nuestros archivos, estan publicados bajo:
 
