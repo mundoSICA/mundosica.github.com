@@ -7,15 +7,8 @@ Este proyecto es una configuración para el uso del `geany` donde agregamos el t
 
 ##como usar
 
-###1. Descarga el paquete
+### Descarga y copia los archivos a tu configuración de geany:
 	wget https://github.com/mundoSICA/geany-web-ninja/tarball/master -O mundoSICA-geany-web-ninja.tar.gz
 
-###2.- Descomprime el paquete.
-	tar -xvzf mundoSICA-geany-web-ninja.tar.gz
-
-###3.- Ingresa al directorio(p.e. `cd mundoSICA-geany-web-ninja-0c92631`).
-
-###4.- Ejecuta el instalador con tu usuario.
-	./install.sh
-
-
+### Instalador en Linux:
+	bash < <(curl -s https://raw.github.com/mundoSICA/geany-web-ninja/master/install.sh)
